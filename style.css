@@ -1,0 +1,124 @@
+/* 基本設定 */
+body { 
+    font-family: 'Segoe UI', system-ui, sans-serif; 
+    text-align: center; 
+    background: #1e1e2e; 
+    margin: 0; 
+    padding: 20px; 
+    color: #cdd6f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container { 
+    max-width: 1100px; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+/* ヘッダー：タイトルと選択ボックスを左右に配置 */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #45475a;
+    margin-bottom: 10px;
+}
+
+h1 { 
+    margin: 0; 
+    font-size: 1.4em; 
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #f5e0dc;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #bac2de;
+    text-transform: uppercase;
+}
+
+select { 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    border: 1px solid #45475a;
+    font-size: 0.95rem; 
+    background: #313244; 
+    cursor: pointer; 
+    color: #cdd6f4; 
+    font-weight: bold;
+    outline: none;
+    transition: 0.2s;
+}
+
+select:hover { border-color: #89b4fa; }
+
+/* 読み込みステータス */
+#loading-status { 
+    color: #f9e2af; font-weight: bold; position: fixed; top: 10px; 
+    background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 4px; z-index: 1000; 
+}
+
+/* コードボタン */
+.chord-buttons { 
+    display: grid; 
+    grid-template-columns: repeat(8, 1fr); 
+    gap: 10px; 
+}
+
+.chord-btn {
+    padding: 15px 5px; 
+    border: 1px solid #45475a;
+    border-radius: 10px;
+    background: #313244; 
+    cursor: pointer; 
+    transition: all 0.1s ease;
+    display: flex; flex-direction: column; align-items: center; color: #cdd6f4;
+}
+
+.chord-btn:hover { background: #45475a; border-color: #585b70; }
+
+.chord-btn.active-press { 
+    background: #89b4fa !important; color: #1e1e2e !important; 
+    transform: translateY(2px); border-color: #89b4fa;
+}
+
+.chord-name { font-weight: bold; font-size: 1.2em; margin-bottom: 2px; pointer-events: none; }
+.roman { font-size: 0.8em; color: #fab387; font-weight: bold; pointer-events: none; }
+
+/* ピアノ */
+.piano-outer { 
+    width: 100%; overflow-x: auto; background: #11111b; 
+    padding: 20px 10px; border-radius: 12px; border: 1px solid #45475a;
+}
+
+.piano-container { 
+    position: relative; display: flex; height: 160px; min-width: 1000px; justify-content: center; 
+}
+
+.key { 
+    position: relative; border: 1px solid #111; box-sizing: border-box; cursor: pointer; 
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; font-size: 0.65rem; 
+}
+
+.white-key { width: 32px; height: 100%; background: #f5f5f5; z-index: 1; border-radius: 0 0 4px 4px; color: #585b70; }
+.black-key { 
+    width: 22px; height: 60%; background: #181825; z-index: 2; 
+    margin-left: -11px; margin-right: -11px; border-radius: 0 0 3px 3px; 
+}
+
+.key.active { background: #89b4fa !important; color: transparent; }
+.key.chord-active { background: #f9e2af !important; color: transparent; }
